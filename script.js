@@ -1,8 +1,9 @@
 const config = {
-  name: "TU NOMBRE",
-  discordProfileUrl: "",
-  discordAvatarUrl: "",
-  discordUserId: "",
+  name: "KAUSHO",
+  discordProfileUrl: "https://discord.com/users/453319707743748106",
+  discordAvatarUrl:
+    "https://cdn.discordapp.com/avatars/453319707743748106/a_9cb7bf397783b17e355c5064fc186644.gif",
+  discordUserId: "453319707743748106",
   typeSpeed: 110,
   deleteSpeed: 70,
   pauseAfterType: 1200,
