@@ -1,0 +1,65 @@
+:root {
+  color-scheme: dark;
+  --black: #000;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--black);
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--white);
+  font-family: "Press Start 2P", monospace;
+}
+
+.screen {
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  padding: 24px;
+  background: #000;
+  text-align: center;
+}
+
+h1 {
+  min-height: 3.2em;
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(1.35rem, 7vw, 4.2rem);
+  letter-spacing: 0;
+  line-height: 1.55;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.58em;
+  height: 1em;
+  margin-left: 0.12em;
+  translate: 0 0.14em;
+  background: var(--white);
+  animation: blink 900ms steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}
