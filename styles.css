@@ -38,7 +38,7 @@ body {
   width: clamp(118px, 18vw, 178px);
   aspect-ratio: 1;
   place-items: center;
-  margin-bottom: clamp(32px, 6vw, 56px);
+  margin-bottom: clamp(18px, 4vw, 30px);
   color: var(--white);
   overflow: visible;
   text-decoration: none;
@@ -52,10 +52,9 @@ body {
   position: relative;
   z-index: 1;
   display: grid;
-  width: 82%;
+  width: 86%;
   aspect-ratio: 1;
   place-items: center;
-  border: 2px solid var(--white);
   border-radius: 50%;
   background: #000;
   overflow: hidden;
@@ -83,10 +82,10 @@ body {
 
 .avatar-decoration {
   position: absolute;
-  inset: -10%;
+  inset: -3%;
   z-index: 2;
-  width: 120%;
-  height: 120%;
+  width: 106%;
+  height: 106%;
   object-fit: contain;
   pointer-events: none;
 }
