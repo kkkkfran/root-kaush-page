@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio personal con proyectos, perfil y Discord."
+    />
+    <title>Portfolio Pixel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#inicio" id="brandName">Portfolio</a>
+      <nav class="site-nav" aria-label="Navegacion principal">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#sobre-mi">Sobre mi</a>
+        <a href="#discord">Discord</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero__shade" aria-hidden="true"></div>
+        <div class="hero__content">
+          <p class="eyebrow" id="heroEyebrow">Developer creativo</p>
+          <h1 id="heroTitle">Construyo mundos digitales.</h1>
+          <p class="hero__intro" id="heroIntro">
+            Sitios, bots y herramientas con estilo propio.
+          </p>
+          <div class="hero__actions" aria-label="Acciones principales">
+            <a class="button button--primary" id="discordCta" href="#discord">
+              Discord
+            </a>
+            <a class="button button--ghost" href="#proyectos">Ver proyectos</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-section" id="sobre-mi">
+        <div class="section__intro">
+          <p class="section-kicker">Perfil</p>
+          <h2 id="aboutTitle">Sobre mi</h2>
+        </div>
+        <div class="about-layout">
+          <article class="about-copy" id="aboutCopy"></article>
+
+          <aside class="discord-card" id="discord" aria-label="Perfil de Discord">
+            <div class="discord-card__top">
+              <div class="avatar-shell" id="avatarShell">
+                <div class="avatar-core" id="discordAvatar">PX</div>
+                <span class="status-dot" id="statusDot" aria-hidden="true"></span>
+              </div>
+              <div>
+                <p class="discord-label">Discord</p>
+                <h3 id="discordName">tu_usuario</h3>
+                <p id="discordStatus">Disponible para colaborar</p>
+              </div>
+            </div>
+            <div class="discord-actions">
+              <a class="button button--primary" id="discordProfileLink" href="#discord">
+                Abrir perfil
+              </a>
+              <button class="button button--ghost" type="button" id="copyDiscord">
+                Copiar usuario
+              </button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section projects-section" id="proyectos">
+        <div class="section__intro">
+          <p class="section-kicker">Builds</p>
+          <h2>Proyectos creados</h2>
+        </div>
+        <div class="projects-grid" id="projectsGrid"></div>
+      </section>
+
+      <section class="section contact-band" id="contacto">
+        <div>
+          <p class="section-kicker">Contacto</p>
+          <h2 id="contactTitle">Hablemos de una idea</h2>
+        </div>
+        <div class="contact-actions" id="contactActions"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span id="footerName">Portfolio Pixel</span>
+      <span id="footerYear"></span>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
