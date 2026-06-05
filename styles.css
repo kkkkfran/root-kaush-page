@@ -11,23 +11,34 @@
 html,
 body {
   margin: 0;
+  width: 100%;
   min-height: 100%;
+  overflow: hidden;
   background: var(--black);
 }
 
 body {
   min-height: 100vh;
+  min-height: 100svh;
   overflow: hidden;
   color: var(--white);
   font-family: "Press Start 2P", monospace;
 }
 
 .screen {
-  display: grid;
-  min-height: 100vh;
-  place-content: center;
-  justify-items: center;
-  padding: 24px;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  width: 100vw;
+  width: 100dvw;
+  width: 100svw;
+  height: 100vh;
+  height: 100svh;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 24px 16px;
   background: #000;
   text-align: center;
 }
@@ -35,10 +46,10 @@ body {
 .avatar-link {
   position: relative;
   display: grid;
-  width: clamp(118px, 18vw, 178px);
+  width: 148px;
   aspect-ratio: 1;
   place-items: center;
-  margin-bottom: clamp(18px, 4vw, 30px);
+  margin-bottom: 24px;
   color: var(--white);
   overflow: visible;
   text-decoration: none;
@@ -95,14 +106,15 @@ body {
 }
 
 h1 {
-  min-height: 3.2em;
+  width: 100%;
+  min-height: 1.55em;
   margin: 0;
   color: var(--white);
-  font-size: clamp(1.35rem, 7vw, 4.2rem);
+  font-size: 4.2rem;
   letter-spacing: 0;
   line-height: 1.55;
-  text-wrap: balance;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  white-space: nowrap;
 }
 
 .cursor {
@@ -124,5 +136,50 @@ h1 {
 @media (prefers-reduced-motion: reduce) {
   .cursor {
     animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .screen {
+    padding-inline: 12px;
+  }
+
+  .avatar-link {
+    width: 118px;
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-size: 1.85rem;
+  }
+
+  .cursor {
+    width: 0.5em;
+    margin-left: 0.08em;
+  }
+}
+
+@media (max-width: 360px) {
+  .avatar-link {
+    width: 108px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-height: 430px) {
+  .screen {
+    padding-block: 12px;
+  }
+
+  .avatar-link {
+    width: 106px;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
   }
 }
