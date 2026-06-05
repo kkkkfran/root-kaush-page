@@ -26,9 +26,48 @@ body {
   display: grid;
   min-height: 100vh;
   place-content: center;
+  justify-items: center;
   padding: 24px;
   background: #000;
   text-align: center;
+}
+
+.avatar-link {
+  position: relative;
+  display: grid;
+  width: clamp(96px, 15vw, 148px);
+  aspect-ratio: 1;
+  place-items: center;
+  margin-bottom: clamp(32px, 6vw, 56px);
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  background: #000;
+  color: var(--white);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.avatar-link[href="#"] {
+  pointer-events: none;
+}
+
+.avatar {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar.is-loaded {
+  display: block;
+}
+
+.avatar.is-loaded + .avatar-fallback {
+  display: none;
+}
+
+.avatar-fallback {
+  font-size: clamp(1rem, 3vw, 1.5rem);
 }
 
 h1 {
