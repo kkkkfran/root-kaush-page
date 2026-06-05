@@ -44,18 +44,25 @@ body {
 }
 
 .identity {
-  display: flex;
-  width: min(100%, 920px);
+  --avatar-size: 132px;
+  --gap: 28px;
+  --name-size: 3rem;
+
+  display: grid;
+  width: calc(var(--avatar-size) + var(--gap) + 7.6em);
+  max-width: 100%;
+  grid-template-columns: var(--avatar-size) 7.6em;
   align-items: center;
   justify-content: center;
-  gap: clamp(18px, 4vw, 42px);
+  gap: var(--gap);
+  font-size: var(--name-size);
 }
 
 .avatar-link {
   flex: 0 0 auto;
   position: relative;
   display: grid;
-  width: 148px;
+  width: var(--avatar-size);
   aspect-ratio: 1;
   place-items: center;
   color: var(--white);
@@ -114,14 +121,15 @@ body {
 }
 
 h1 {
-  width: auto;
+  width: 7.6em;
   min-height: 1.55em;
   margin: 0;
   color: var(--white);
-  font-size: 4.2rem;
+  font-size: 1em;
   letter-spacing: 0;
   line-height: 1.55;
   overflow-wrap: normal;
+  text-align: left;
   white-space: nowrap;
 }
 
@@ -153,15 +161,9 @@ h1 {
   }
 
   .identity {
-    gap: 10px;
-  }
-
-  .avatar-link {
-    width: 64px;
-  }
-
-  h1 {
-    font-size: 1.28rem;
+    --avatar-size: 62px;
+    --gap: 8px;
+    --name-size: 1.08rem;
   }
 
   .cursor {
@@ -172,15 +174,9 @@ h1 {
 
 @media (max-width: 360px) {
   .identity {
-    gap: 10px;
-  }
-
-  .avatar-link {
-    width: 58px;
-  }
-
-  h1 {
-    font-size: 1.05rem;
+    --avatar-size: 56px;
+    --gap: 7px;
+    --name-size: 0.94rem;
   }
 }
 
@@ -189,11 +185,9 @@ h1 {
     padding-block: 12px;
   }
 
-  .avatar-link {
-    width: 86px;
-  }
-
-  h1 {
-    font-size: 2.2rem;
+  .identity {
+    --avatar-size: 86px;
+    --gap: 16px;
+    --name-size: 1.9rem;
   }
 }
