@@ -3,6 +3,8 @@ const config = {
   discordProfileUrl: "https://discord.com/users/453319707743748106",
   discordAvatarUrl:
     "https://cdn.discordapp.com/avatars/453319707743748106/a_9cb7bf397783b17e355c5064fc186644.gif",
+  discordDecorationUrl:
+    "https://cdn.discordapp.com/avatar-decoration-presets/a_d10e9efc4d97fd568e3318a3aa65e615.png?size=256&passthrough=true",
   discordUserId: "453319707743748106",
   typeSpeed: 110,
   deleteSpeed: 70,
@@ -12,6 +14,7 @@ const config = {
 
 const target = document.querySelector("#typewriter");
 const avatar = document.querySelector("#avatar");
+const avatarDecoration = document.querySelector("#avatarDecoration");
 const avatarLink = document.querySelector("#avatarLink");
 const avatarFallback = document.querySelector("#avatarFallback");
 let index = 0;
@@ -36,8 +39,25 @@ function showAvatar(url) {
   });
 }
 
+function showDecoration(url) {
+  if (!url) return;
+
+  avatarDecoration.src = url;
+  avatarDecoration.addEventListener(
+    "load",
+    () => avatarDecoration.classList.add("is-loaded"),
+    { once: true }
+  );
+}
+
 async function loadDiscordAvatar() {
-  const { discordAvatarUrl, discordProfileUrl, discordUserId, name } = config;
+  const {
+    discordAvatarUrl,
+    discordDecorationUrl,
+    discordProfileUrl,
+    discordUserId,
+    name,
+  } = config;
 
   avatarFallback.textContent = initialsFrom(name);
 
@@ -49,6 +69,7 @@ async function loadDiscordAvatar() {
 
   if (discordAvatarUrl) {
     showAvatar(discordAvatarUrl);
+    showDecoration(discordDecorationUrl);
     return;
   }
 
@@ -64,6 +85,12 @@ async function loadDiscordAvatar() {
     showAvatar(
       `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${extension}?size=256`
     );
+
+    if (data.discord_user.avatar_decoration_data?.asset) {
+      showDecoration(
+        `https://cdn.discordapp.com/avatar-decoration-presets/${data.discord_user.avatar_decoration_data.asset}.png?size=256&passthrough=true`
+      );
+    }
   } catch {
     avatarFallback.textContent = initialsFrom(name);
   }
